@@ -10,7 +10,7 @@ before_install:
   - wget -qO- https://toolbelt.heroku.com/install.sh | sh
   # login to docker registries (dockerhub + heroku)
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - echo "$HEROKU_PASSWORD" | docker login -u "$HEROKU_USERNAME" --password-stdin registry.heroku.com
+  - echo "$HEROKU_API_KEY" | docker login -u "$HEROKU_USERNAME" --password-stdin registry.heroku.com
 cache:
   directories:
   - node_modules
@@ -27,6 +27,7 @@ deploy:
     # push to dockerhub & heroku
     docker push mahdichtioui/feed-api-node-js;
     docker push registry.heroku.com/$HEROKU_APP_NAME/web;
+    heroku container:push web --app $HEROKU_APP_NAME
     heroku container:release web --app $HEROKU_APP_NAME
   on:
     branch: master
