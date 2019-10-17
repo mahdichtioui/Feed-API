@@ -1,7 +1,31 @@
+sudo: required
 language: node_js
 node_js:
   - "stable"
+services:
+  - docker
+
+before_install:
+  # install heroku CLI
+  - wget -qO- https://toolbelt.heroku.com/install.sh | sh
+  # login to docker registries (dockerhub + heroku)
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - echo "$HEROKU_PASSWORD" | docker login -u "$HEROKU_USERNAME" --password-stdin registry.heroku.com
 cache:
   directories:
   - node_modules
-script: 'true'
+
+script:
+  - npm build
+  # build docker images
+  - docker build -t mahdichtioui/feed-api-node-js .
+  - docker tag mahdichtioui/feed-api-node-js registry.heroku.com/$HEROKU_APP_NAME/web
+
+deploy:
+  provider: script
+  script: 
+    # push to dockerhub & heroku
+    docker push mahdichtioui/feed-api-node-js;
+    docker push registry.heroku.com/$HEROKU_APP_NAME/web;
+  on:
+    branch: master
