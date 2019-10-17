@@ -4,7 +4,6 @@ node_js:
   - "stable"
 services:
   - docker
-
 before_install:
   # install heroku CLI
   - wget -qO- https://toolbelt.heroku.com/install.sh | sh
@@ -14,20 +13,17 @@ before_install:
 cache:
   directories:
   - node_modules
-
 script:
   - npm build
   # build docker images
-  - docker build -t mahdichtioui/feed-api-node-js .
+  - docker build -t mahdichtioui/feed-api-node-js
   - docker tag mahdichtioui/feed-api-node-js registry.heroku.com/$HEROKU_APP_NAME/web
-
 deploy:
   provider: script
   script: 
     # push to dockerhub & heroku
     docker push mahdichtioui/feed-api-node-js;
     docker push registry.heroku.com/$HEROKU_APP_NAME/web;
-    #heroku container:push web --app $HEROKU_APP_NAME
     heroku container:release web --app $HEROKU_APP_NAME
   on:
     branch: master
