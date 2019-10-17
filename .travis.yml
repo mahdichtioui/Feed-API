@@ -16,7 +16,7 @@ cache:
 script:
   - npm build
   # build docker images
-  - docker build -t mahdichtioui/feed-api-node-js
+  - docker build -t mahdichtioui/feed-api-node-js .
   - docker tag mahdichtioui/feed-api-node-js registry.heroku.com/$HEROKU_APP_NAME/web
 deploy:
   provider: script
