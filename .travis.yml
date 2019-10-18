@@ -27,3 +27,8 @@ deploy:
     heroku container:release web --app $HEROKU_APP_NAME
   on:
     branch: master
+notifications:
+  slack: mpdam-m1-2018-2019:DM6pPZiQFpWWbc0TgYLHuK0V
+    if: branch = master
+   email:
+    - mahdichtioui19@gmail.com
