@@ -18,10 +18,6 @@ script:
   # build docker images
   - docker build -t mahdichtioui/feed-api-node-js .
   - docker tag mahdichtioui/feed-api-node-js registry.heroku.com/$HEROKU_APP_NAME/web
-notificaion:
-  slack: mpdam-m1-2018-2019:DM6pPZiQFpWWbc0TgYLHuK0V
-  email:
-    - mahdichtioui19@gmail.com
 deploy:
   provider: script
   script: 
@@ -31,3 +27,7 @@ deploy:
     heroku container:release web --app $HEROKU_APP_NAME
   on:
     branch: master
+  notificaion:
+    slack: mpdam-m1-2018-2019:DM6pPZiQFpWWbc0TgYLHuK0V
+    email:
+      - mahdichtioui19@gmail.com
