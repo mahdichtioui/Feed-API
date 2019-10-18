@@ -6,7 +6,6 @@ services:
   - docker
 notificaion:
   slack: mpdam-m1-2018-2019:DM6pPZiQFpWWbc0TgYLHuK0V
-    if: branch = master
 before_install:
   # install heroku CLI
   - wget -qO- https://toolbelt.heroku.com/install.sh | sh
