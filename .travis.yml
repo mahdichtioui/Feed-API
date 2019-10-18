@@ -4,8 +4,6 @@ node_js:
   - "stable"
 services:
   - docker
-notificaion:
-  slack: mpdam-m1-2018-2019:DM6pPZiQFpWWbc0TgYLHuK0V
 before_install:
   # install heroku CLI
   - wget -qO- https://toolbelt.heroku.com/install.sh | sh
@@ -20,6 +18,8 @@ script:
   # build docker images
   - docker build -t mahdichtioui/feed-api-node-js .
   - docker tag mahdichtioui/feed-api-node-js registry.heroku.com/$HEROKU_APP_NAME/web
+notificaion:
+  slack: mpdam-m1-2018-2019:DM6pPZiQFpWWbc0TgYLHuK0V
 deploy:
   provider: script
   script: 
