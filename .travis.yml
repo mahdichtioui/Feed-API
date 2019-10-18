@@ -23,7 +23,8 @@ deploy:
     branch: master
 notifications:
   email:
-    - mahdichtioui19@gmail.com
+    recipients:
+      - mahdichtioui19@gmail.com
   slack:
     rooms:
       secure: NhEJg/+AhNHh8Dl/OQwEZyGtuaojJrZFk0wvZaLCF62IU/ez+0WupCFQ8rFl5NHCfpeLyNlq1twfxLSGRMfC+Z6nWzs2tI+zn7+Vvyj+K8H/2LpadJyrVR0GEU1BvEKkKjKsW6o/QbndGpznI3VjUUZ1yzjGGoQRjeihhT1OCrjAWW5WTs9Kuv3IExbyCXooDd5SQk0tduTRjidgLXbGdeVy4t003PDBHtDr6+Euq2J9BWx5p3P6uZnwH/2s8/zl6LB4NR5JGZs5gDIfbYRGy1SKqE8aD4Rp6pNpys78cn02IvytBBPJT8K9W5pm3uQfb2XomR+A5xumilY6Sd0x/r4zQAZhhGcxliuBh4IYiIgPjOwB6qdZfG91UI+s6MuSDYO8kohU8bDUukyS/RsrThvTl6GMXeAMfxAMZron5ewMlHSsIoEkIIEBNwpMzjNHaEaUJyofASN0NKvW1mmMkqKwjzhrBqjoK9BldmOrSWsEur/okBH7jmCDYwjOQWx0/5UlP3EbMcM9n1fPfM1AItcv4tN8YYI6KdIAp/L8goXMRkDVDxwwh8ID48W1Gnlp9y8A4ERjIegxvehw9aZYBlWKDA1K+8Ab2vbCK4w0WLuxx5sZkKQoZy+kgg5LDcK0br8u1hxzWLmBH0Lr/G6MTWkO40a+nGkNaeVNKmT7tjo=
