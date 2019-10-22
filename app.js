@@ -18,6 +18,7 @@ app.use((req, res, next) => {
 
 app.use('/feed', feedRoutes);
 
+//set the port
 app.set( 'port', ( process.env.PORT || 5000 ));
 
 // Start node server
