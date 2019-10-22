@@ -17,6 +17,7 @@ app.use((req, res, next) => {
 
 });
 
+//set the routes
 app.use('/feed', feedRoutes);
 app.use('/user', userRoutes);
 
