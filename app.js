@@ -21,7 +21,6 @@ app.use((req, res, next) => {
 app.use('/feed', feedRoutes);
 app.use('/user', userRoutes);
 
-
 //set the port
 app.set( 'port', ( process.env.PORT || 5000 ));
 
