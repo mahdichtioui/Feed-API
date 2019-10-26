@@ -18,7 +18,7 @@ script:
 deploy:
   provider: script
   script: docker push mahdichtioui/feed-api-node-js; docker push registry.heroku.com/$HEROKU_APP_NAME/web;
-    heroku container:release web --app $HEROKU_APP_NAME
+    heroku heroku-18:release web --app $HEROKU_APP_NAME
   on:
     branch: master
 notifications:
